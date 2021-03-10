@@ -7,15 +7,17 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
     public function index() {
-        $data = [
-            'productOne' => 'iPhone',
-            'productTwo' => 'Samsung',
-        ];
-
-        //Directly in the view
-        return view('products.index', [
-            'data' => $data
-        ]);
+//        $data = [
+//            'productOne' => 'iPhone',
+//            'productTwo' => 'Samsung',
+//        ];
+//
+//        //Directly in the view
+//        return view('products.index', [
+//            'data' => $data
+//        ]);
+            //Using route naming
+            return view('products.index');
     }
 
     public function show($name) {

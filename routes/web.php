@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +13,16 @@ use App\Http\Controllers\ProductsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [PagesController::class, 'index']);
+
+Route::get('/about', [PagesController::class, 'about']);
+
+Route::get('/portfolio', [PagesController::class, 'portfolio']);
+
 //Lara 8 (NEW)
-Route::get('/products', [ProductsController::class, 'index']);
+//Route::get('/products',
+//    [ProductsController::class, 'index'])
+//    ->name('products');
 
 //Route::get('/products/{name}', [ProductsController::class, 'show']);
 
@@ -27,11 +35,11 @@ Route::get('/products', [ProductsController::class, 'index']);
 //    ->where('name', '[a-zA-Z]+');
 
 //Pattern is string'n'integer combined
-Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])
-    ->where([
-        'name' => '[a-zA-Z]+',
-        'id' => '[0-9]+'
-    ]);
+//Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])
+//    ->where([
+//        'name' => '[a-zA-Z]+',
+//        'id' => '[0-9]+'
+//    ]);
 
 // /products = all
 // /products/productName = single

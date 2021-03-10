@@ -9,8 +9,8 @@
 </head>
 <body>
     <h1>Products Index.blade.php</h1>
-
-    <p>{{ $products }}</p>
+    <a href="{{ route('products') }}">Products</a>
+{{--    <p>{{ $products }}</p>--}}
 
 </body>
 </html>
