@@ -9,11 +9,8 @@
 </head>
 <body>
     <h1>Products Index.blade.php</h1>
-    @foreach($data as $item)
-        <p>
-            {{ $item }}
-        </p>
-    @endforeach
+    <a href="{{ route('products') }}">Products</a>
+{{--    <p>{{ $products }}</p>--}}
 
 </body>
 </html>

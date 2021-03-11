@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +13,34 @@ use App\Http\Controllers\ProductsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Lara 8 (NEW)
-Route::get('/products', [ProductsController::class, 'index']);
-Route::get('/products/about', [ProductsController::class, 'about']);
+Route::get('/', [PagesController::class, 'index']);
 
-////Route to users - Array(JSON)
-//Route::get('/users', function (){
-//    return ['PHP', 'HTML', 'Laravel'];
-//});
-//
-////Route to users - JSON object
-//Route::get('users', function (){
-//   return response()->json([
-//       'name' => 'ArtemSh',
-//       'course' => 'Laravel 8 Course'
-//   ]);
-//});
-//
-////Route to users - function (to home)
-//Route::get('/users', function (){
-//    return redirect('/');
-//});
+Route::get('/about', [PagesController::class, 'about']);
+
+Route::get('/portfolio', [PagesController::class, 'portfolio']);
+
+//Lara 8 (NEW)
+//Route::get('/products',
+//    [ProductsController::class, 'index'])
+//    ->name('products');
+
+//Route::get('/products/{name}', [ProductsController::class, 'show']);
+
+//Pattern is integer
+//Route::get('/products/{id}', [ProductsController::class, 'show'])
+//    ->where('id', '[0-9]+');
+
+//Pattern is string
+//Route::get('/products/{name}', [ProductsController::class, 'show'])
+//    ->where('name', '[a-zA-Z]+');
+
+//Pattern is string'n'integer combined
+//Route::get('/products/{name}/{id}', [ProductsController::class, 'show'])
+//    ->where([
+//        'name' => '[a-zA-Z]+',
+//        'id' => '[0-9]+'
+//    ]);
+
+// /products = all
+// /products/productName = single
+// /products/id = single
