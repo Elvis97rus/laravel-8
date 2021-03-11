@@ -79,7 +79,7 @@ p {
 
 /* Landing section */
 #hero-container {
-    background: url('img/hero-banner.jpg') no-repeat center center fixed;
+    background: url('/storage/hero-banner.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,9 @@ Route::get('/', [PagesController::class, 'index']);
 Route::get('/about', [PagesController::class, 'about']);
 
 Route::get('/portfolio', [PagesController::class, 'portfolio']);
+
+//posts endpoint
+Route::get('/posts', [PostsController::class, 'index']);
 
 //Lara 8 (NEW)
 //Route::get('/products',
