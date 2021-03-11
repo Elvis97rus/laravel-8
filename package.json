@@ -23,5 +23,8 @@
         "sass-loader": "^10.1.1",
         "tailwindcss": "^1.8",
         "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@babel/parser": "^7.13.10"
     }
 }
