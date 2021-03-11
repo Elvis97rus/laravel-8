@@ -3,7 +3,7 @@
    Foreach loop
    For else loop
    While loop
--->
+
 
 @forelse ($names as $name)
     <h2>Name is  {{ $name }}</h2>
@@ -22,7 +22,7 @@
 @while ($i < 5)
     <h2>{{$i++}}</h2>
 @endwhile
-
+    -->
 
 <!--
     Comparing multiple possible conditions
@@ -43,4 +43,6 @@
 
 @endswitch
 -->
-views, layouts, sections, switch-case, loops
+
+2:49:23
+Compiling assets
