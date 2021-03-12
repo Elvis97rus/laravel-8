@@ -48,3 +48,5 @@ Route::get('/posts', [PostsController::class, 'index']);
 // /products = all
 // /products/productName = single
 // /products/id = single
+
+// FACTORY MODEL 3:15:35
