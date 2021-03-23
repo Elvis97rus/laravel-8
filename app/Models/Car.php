@@ -20,4 +20,8 @@ class Car extends Model
     protected $hidden = ['password', 'remember_token', 'id'];
 
     protected $visible = ['name', 'founded', 'description'];
+
+    public function carModels(){
+        return $this->hasMany(CarModel::class);
+    }
 }

@@ -11,21 +11,21 @@ class CarsController extends Controller
     public function index()
     {
         //Select * From cars
-//        $cars = Car::all();
+        $cars = Car::all();
         // in array (not collection)
-        $cars = Car::all()->toArray();
+//        $cars = Car::all()->toArray();
         // in JSON (not collection)
 //        $cars = Car::all()->toJson();
 //        $cars = json_decode($cars);
         //filter
 //        $cars = Car::where('name', '=', 'Audi')->get();
-
+//
 //        print_r(Car::sum('founded'));
 //        print_r(Car::avg('founded'));
-
+//
         //get some or throw error
         //->findOrFail();
-
+//
         //chunk separate query result on parts by {2}
 //        $cars = Car::chunk(2, function ($cars) {
 //            foreach ($cars as $car) {
@@ -75,7 +75,9 @@ class CarsController extends Controller
      */
     public function show($id)
     {
-        //
+        $car = Car::find($id)->first();
+
+        return view('cars.show')->with('car', $car);
     }
 
     /**
