@@ -11,7 +11,12 @@ class CarsController extends Controller
     public function index()
     {
         //Select * From cars
-        $cars = Car::all();
+//        $cars = Car::all();
+        // in array (not collection)
+        $cars = Car::all()->toArray();
+        // in JSON (not collection)
+//        $cars = Car::all()->toJson();
+//        $cars = json_decode($cars);
         //filter
 //        $cars = Car::where('name', '=', 'Audi')->get();
 
