@@ -21,7 +21,30 @@ class Car extends Model
 
     protected $visible = ['name', 'founded', 'description'];
 
-    public function carModels(){
+    public function carModels()
+    {
         return $this->hasMany(CarModel::class);
+    }
+
+    //define has many relation
+    public function engines()
+    {
+        return $this->hasManyThrough(
+            Engine::class,
+            CarModel::class,
+            'car_id', //foreign key on CarModel table
+            'model_id' // foreign key on Engine table
+        );
+    }
+
+    //define a has one through relation
+    public function productionDate()
+    {
+        return $this->hasOneThrough(
+            CarProductionDate::class,
+            CarModel::class,
+            'car_id',
+            'model_id'
+        );
     }
 }
