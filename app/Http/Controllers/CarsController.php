@@ -50,17 +50,46 @@ class CarsController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *
-     *  * @return null
+     * @param Request $request
+     * @return null
      */
-    public function store(CreateValidationRequest $request)
+//    public function store(CreateValidationRequest $request)
+    public function store(Request $request)
     {
-        $validated = $request->validated();
+        //Methods we can use on $request
+        //guessExtension()
+        //getMimeType()
+        //store()
+        //asStore()
+        //storePublicly()
+        //move()
+        //getClientOriginalName() - original file name
+        //getClientMimeType()
+        //guessClientExtension() - to guess ext without file type or dot
+        //getSize()
+        //getError()
+        //isValid()
+
+        //image validation
+        $request->validate([
+            'name' => 'required',
+            'founded' => 'required|integer|min:0|max:2021',
+            'description' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $newImageName = $request->name . '-' . time() . '.' . $request->image->extension();
+
+        $request->image->move(public_path('images'), $newImageName);
+
+        // CreateValidationRequest $request
+//        $validated = $request->validated();
 
         $car = Car::create([
             'name' => $request->input('name'),
             'founded' => $request->input('founded'),
             'description' => $request->input('description'),
+            'image_path' => $newImageName
         ]);
 
         return redirect('/cars');
@@ -69,10 +98,9 @@ class CarsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
      */
-    public function show($id)
+    public function show(int $id)
     {
         $car = Car::find($id);
         //dd($car);

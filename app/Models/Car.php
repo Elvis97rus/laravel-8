@@ -16,10 +16,10 @@ class Car extends Model
 //    protected $timestamps = true;
 //    protected $dateFormat = 'h:m:s';
 
-    protected $fillable = ['name', 'founded', 'description'];
+    protected $fillable = ['name', 'founded', 'description', 'image_path'];
     protected $hidden = ['password', 'remember_token', 'id'];
-
-    protected $visible = ['name', 'founded', 'description'];
+//
+    protected $visible = ['name', 'founded', 'description','image_path'];
 
     public function carModels()
     {

@@ -3,6 +3,13 @@
 @section('content')
     <div class="m-auto w-4/5 py-24">
         <div class="text-center">
+            @if (isset($car->image_path))
+                <img
+                    src="{{ asset('images/' . $car->image_path) }}"
+                    alt=""
+                class="w-2/5 mb-8 shadow-xl m-auto">
+            @endif
+
             <h1 class="text-5xl uppercase bold">
                 {{ $car->name }}
             </h1>
@@ -17,20 +24,6 @@
                     <p class="text-lg text-gray-700 py-6">
                         {{ $car->description }}
                     </p>
-
-{{--                    <ul>--}}
-{{--                        <p class="text-lg text-gray-700 py-3">--}}
-{{--                            Models:--}}
-{{--                        </p>--}}
-
-{{--                        @forelse ($car->carModels as $model)--}}
-{{--                            <li class="inline italic text-gray-600 px-1 py-6">--}}
-{{--                                {{ $model['model_name'] }}--}}
-{{--                            </li>--}}
-{{--                        @empty--}}
-{{--                            <p>No models found</p>--}}
-{{--                        @endforelse--}}
-{{--                    </ul>--}}
 
                     <table class="table-auto">
                         <tr class="bg-blue-100">
